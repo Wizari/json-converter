@@ -33,14 +33,7 @@ jobs:
         run: mvn -B clean package
 
       - name: Create Windows EXE with jpackage
-        run: |
-          jpackage ^
-            --name JsonConverter ^
-            --input target ^
-            --main-jar json-converter-0.0.1-SNAPSHOT.jar ^
-            --type app-image ^
-            --dest release ^
-            --win-console
+        run: jpackage --name JsonConverter --input target --main-jar json-converter-0.0.1-SNAPSHOT.jar --type app-image --dest release --win-console
 
       - name: Upload EXE as artifact
         uses: actions/upload-artifact@v4
